@@ -14,7 +14,7 @@ const NavBar = () => {
         <li><button className='bg-[#F63E7B] text-white px-8 lg:ml-4'>Log in</button></li>
     </>
     return (
-        <div className="navbar fixed z-10 bg-base-100">
+        <div className="navbar fixed hover:text-orange-500 z-10 bg-opacity-50 max-w-screen text-white bg-black">
             <div className="navbar-start w-full">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
