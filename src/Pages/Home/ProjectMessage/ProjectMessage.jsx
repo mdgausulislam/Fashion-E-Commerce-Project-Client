@@ -2,27 +2,27 @@ import React from 'react';
 
 const ProjectMessage = () => {
     return (
-        <div className='mx-72 mt-10'>
+        <div className='lg:mx-72 mt-10'>
             <h1 className='font-bold text-4xl text-center'>Let us handle your <br />
                 project, professionally.</h1>
             <form>
-                <div className='flex gap-8 mt-10'>
+                <div className='md:flex gap-8 mt-10'>
                     <div className="form-control w-full">
                         <input type="text" placeholder="Full Name" className="input input-bordered w-full" />
                     </div>
-                    <div className="form-control w-full">
+                    <div className="form-control w-full mt-4">
                         <input type="text" placeholder="Last Name" className="input input-bordered w-full" />
                     </div>
                 </div>
-                <div className='flex gap-8 mt-10'>
+                <div className='md:flex gap-8 md:mt-10 mt-4'>
                     <div className="form-control w-full">
                         <input type="email" placeholder="Email Address" className="input input-bordered w-full" />
                     </div>
-                    <div className="form-control w-full">
+                    <div className="form-control w-full mt-4">
                         <input type="number" placeholder="Phone Number" className="input input-bordered w-full" />
                     </div>
                 </div>
-                <div className="form-control my-10">
+                <div className="form-control md:my-10 my-4">
                     <textarea className="textarea textarea-bordered h-24 w-full" placeholder="your Message"></textarea>
                 </div>
             </form>
