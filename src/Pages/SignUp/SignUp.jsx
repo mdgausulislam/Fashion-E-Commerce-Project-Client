@@ -1,13 +1,23 @@
 import React from 'react';
 import SocialLink from '../Shared/SocialLink/SocialLink';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import useAuth from '../../hooks/useAuth';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
+    const { createUser } = useAuth();
+    const navigate=useNavigate();
 
     const onSubmit = (data) => {
         console.log(data);
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate('/');
+            })
+            .catch(error => console.log(error.message))
     }
     const password = React.useRef({});
     password.current = watch('password', " ");
