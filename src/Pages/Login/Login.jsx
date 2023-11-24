@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLink from '../Shared/SocialLink/SocialLink';
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+    const { register, handleSubmit } = useForm();
     const location=useLocation();
     const navigate=useNavigate();
+    // const from=
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
