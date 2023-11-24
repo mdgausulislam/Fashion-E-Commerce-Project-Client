@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import SocialLink from '../Shared/SocialLink/SocialLink';
 
 const Login = () => {
+    const location=useLocation();
+    const navigate=useNavigate();
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -29,11 +32,11 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-                        <p>Don’t have an account? <Link to='/signUp' className='underline text-blue-600'>Create an account</Link> </p>
                     </form>
-                    <div className="divider">OR</div>
+                    <p className='text-center'>Don’t have an account? <Link to='/signUp' className='underline text-blue-600'>Create an account</Link> </p>
+                    <div className="divider"></div>
+                    <SocialLink></SocialLink>
                 </div>
-
             </div>
         </div>
     );

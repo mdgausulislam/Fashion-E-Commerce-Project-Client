@@ -2,16 +2,33 @@ import React from 'react';
 import { FaBars } from "react-icons/fa";
 import './NavBar.css';
 import logo from '../../../assets/logo.png'
+import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const NavBar = () => {
+    const { user, logOut } = useAuth();
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error.message))
+    }
 
     const navbar = <>
-        <li><a>Home</a></li>
-        <li><a>Our Portfolio</a></li>
-        <li><a>Our Team</a></li>
-        <li><a>Contact Us</a></li>
-        <li><a>Support</a></li>
-        <li><button className='bg-[#F63E7B] text-white px-8 lg:ml-4'>Log in</button></li>
+        <li><Link>Home</Link></li>
+        <li><Link>Our Portfolio</Link></li>
+        <li><Link to='/ourTeam'>Our Team</Link></li>
+        <li><Link>Contact Us</Link></li>
+        <li><Link>Support</Link></li>
+        <li>
+            {
+                user ? <>
+                    <button onClick={handleLogOut} className='bg-[#F63E7B] text-white px-8 lg:ml-4'>Log Out</button>
+                </> : <>
+                    <Link to='/login' className='bg-[#F63E7B] text-white px-8 lg:ml-4'>Login</Link>
+                </>
+            }
+        </li>
+
     </>
     return (
         <div className="navbar fixed hover:text-orange-500 z-10 bg-opacity-50 max-w-screen text-white bg-black">

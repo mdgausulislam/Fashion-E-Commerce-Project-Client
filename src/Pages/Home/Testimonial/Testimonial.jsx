@@ -16,9 +16,7 @@ const Testimonial = () => {
     }, [])
 
     const totalPages = Math.ceil(reviews.length / itemsPerPage);
-    console.log(totalPages);
     const pageNumber = [...Array(totalPages).keys()];
-    console.log(pageNumber);
 
     const indexLastReview = (currentPage + 1) * itemsPerPage;
     const indexFirstReview=indexLastReview-itemsPerPage;
@@ -60,7 +58,7 @@ const Testimonial = () => {
                 <p>CurrentPage:{currentPage} and itemsPerPage:{itemsPerPage}</p>
                 {
                     pageNumber.map(number => <button
-                        key={number._id}
+                        key={number}
                         className={currentPage === number ? 'selected' : ''}
                         onClick={() => handlePageChange(number)}
                     >{number + 1}</button>)
