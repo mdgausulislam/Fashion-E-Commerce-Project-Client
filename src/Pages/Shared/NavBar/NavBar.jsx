@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaBars } from "react-icons/fa";
-import './NavBar.css';
 import logo from '../../../assets/logo.png'
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
@@ -14,11 +13,11 @@ const NavBar = () => {
     }
 
     const navbar = <>
-        <li><Link>Home</Link></li>
-        <li><Link>Our Portfolio</Link></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/dashboard'>Our Portfolio</Link></li>
         <li><Link to='/ourTeam'>Our Team</Link></li>
-        <li><Link>Contact Us</Link></li>
-        <li><Link>Support</Link></li>
+        <li><Link to='/contact'>Contact Us</Link></li>
+        <li><Link to='/support'>Support</Link></li>
         <li>
             {
                 user ? <>

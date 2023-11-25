@@ -7,6 +7,10 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import OurTeam from "../Pages/OurTeam/OurTeam";
 import PrivateRoutes from "./PrivateRoutes";
+import DashBoard from "../Layout/DashBoard";
+import Booking from "../Pages/DashBoard/Booking/Booking";
+import ServiceList from "../Pages/DashBoard/ServiceList/ServiceList";
+import Review from "../Pages/DashBoard/Review/Review";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +32,24 @@ export const router = createBrowserRouter([
             {
                 path: '/signUp',
                 element: <SignUp></SignUp>
+            }
+        ]
+    },
+    {
+        path: '/dashboard', // <-- Update path to '/dashboard'
+        element: <DashBoard></DashBoard>,
+        children: [
+            {
+                path: 'booking', // <-- This should match the link '/dashboard/booking'
+                element: <Booking></Booking>
+            },
+            {
+                path: 'bookingList',
+                element: <ServiceList></ServiceList>
+            },
+            {
+                path: 'review',
+                element: <Review></Review>
             }
         ]
     },
