@@ -11,6 +11,7 @@ import DashBoard from "../Layout/DashBoard";
 import Booking from "../Pages/DashBoard/Booking/Booking";
 import ServiceList from "../Pages/DashBoard/ServiceList/ServiceList";
 import Review from "../Pages/DashBoard/Review/Review";
+import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
             {
                 path: 'review',
                 element: <Review></Review>
+            },
+            {
+                path:'allUsers',
+                element:<AllUsers></AllUsers>
             }
         ]
     },
