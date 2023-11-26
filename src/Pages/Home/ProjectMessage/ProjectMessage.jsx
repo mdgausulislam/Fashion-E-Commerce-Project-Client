@@ -10,7 +10,7 @@ const ProjectMessage = () => {
                     <div className="form-control w-full">
                         <input type="text" placeholder="Full Name" className="input input-bordered w-full" />
                     </div>
-                    <div className="form-control w-full mt-4">
+                    <div className="form-control w-full">
                         <input type="text" placeholder="Last Name" className="input input-bordered w-full" />
                     </div>
                 </div>
@@ -18,7 +18,7 @@ const ProjectMessage = () => {
                     <div className="form-control w-full">
                         <input type="email" placeholder="Email Address" className="input input-bordered w-full" />
                     </div>
-                    <div className="form-control w-full mt-4">
+                    <div className="form-control w-full">
                         <input type="number" placeholder="Phone Number" className="input input-bordered w-full" />
                     </div>
                 </div>

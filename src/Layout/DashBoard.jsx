@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaBook, FaShoppingCart } from "react-icons/fa";
+import { FaBook, FaHome, FaShoppingCart } from "react-icons/fa";
 import { MdReviews } from "react-icons/md";
 import './DashBoard.css'
 
@@ -18,9 +18,12 @@ const DashBoard = () => {
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 min-h-full space-y-4 bg-red-500">
                     {/* Sidebar content here */}
+                    <li><NavLink to='/'><FaHome /> Home </NavLink></li>
                     <li><NavLink to='/dashboard/booking'><FaShoppingCart /> Booking</NavLink></li>
                     <li><NavLink to='/dashboard/bookingList'><FaBook /> Booking list</NavLink></li>
                     <li><NavLink to='/dashboard/review'><MdReviews /> Review</NavLink></li>
+
+
                 </ul>
 
             </div>
