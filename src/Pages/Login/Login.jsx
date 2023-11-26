@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLink from '../Shared/SocialLink/SocialLink';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
@@ -18,6 +19,13 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "you login successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 navigate(from, { replace: true })
 
             })

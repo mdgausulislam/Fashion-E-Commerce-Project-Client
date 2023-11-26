@@ -3,11 +3,14 @@ import SocialLink from '../Shared/SocialLink/SocialLink';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
-    const { createUser } = useAuth();
-    const navigate=useNavigate();
+    const { createUser, updateUserProfile } = useAuth();
+    const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
 
     const onSubmit = (data) => {
         console.log(data);
@@ -15,7 +18,25 @@ const SignUp = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                navigate('/');
+                updateUserProfile(data.name)
+                    .then(() => {
+                        const saveUsers = { name: data.name, email: data.email }
+                        axiosPublic.post('/users', saveUsers)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    Swal.fire({
+                                        position: "top-end",
+                                        icon: "success",
+                                        title: "You sign Up successfully",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
+                    })
+
+
             })
             .catch(error => console.log(error.message))
     }
